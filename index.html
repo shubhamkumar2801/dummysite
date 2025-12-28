@@ -3,193 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Journal | 2025</title>
-    <!-- Elegant Serif for Titles, Sans-Serif for Body -->
+    <title>Senior Software Engineer | 5+ YOE</title>
     <link href="fonts.googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --accent: #d4a373; /* Warm Sand */
-            --bg-overlay: rgba(254, 250, 246, 0.92);
-            --text: #1a1a1a;
+            --bg: #0a0a0c;
+            --card: #16161a;
+            --accent: #00ffaa; /* Cyber Green */
+            --text: #ecedee;
+            --text-muted: #94a3b8;
+            --border: #2d2d30;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
+            background-color: var(--bg);
             color: var(--text);
-            /* Soft, atmospheric background image */
-            background: url('images.unsplash.com') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        /* Frosted Glass Container */
-        .page-wrapper {
-            background: var(--bg-overlay);
-            max-width: 1000px;
-            margin: 0 auto;
-            min-height: 100vh;
-            box-shadow: 0 0 50px rgba(0,0,0,0.1);
-            padding-bottom: 80px;
-        }
-
-        header {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
             margin: 0;
-            font-style: italic;
+            line-height: 1.6;
         }
 
-        nav {
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-            text-align: center;
-            margin-bottom: 40px;
+        .container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 20px;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            margin: 0 20px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        /* Blog Grid Layout */
-        .blog-container {
+        /* Bento Grid */
+        .bento {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 0 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
         }
 
-        .post-card {
-            background: white;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: transform 0.3s;
+        .box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: border-color 0.3s;
         }
 
-        .post-card:hover { transform: translateY(-5px); }
+        .box:hover { border-color: var(--accent); }
 
-        .post-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .post-content {
-            padding: 20px;
-        }
-
-        .post-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin: 0 0 10px 0;
-        }
-
-        .category {
+        /* Header / Terminal Box */
+        .hero { grid-column: span 3; position: relative; overflow: hidden; }
+        .terminal-header {
+            font-family: 'Fira Code', monospace;
             color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; }
+        .yoe-badge {
+            display: inline-block;
+            background: rgba(0, 255, 170, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 10px;
-            display: block;
         }
 
-        /* Sidebar Style Section */
-        .about-me {
-            text-align: center;
-            padding: 60px 40px;
-            background: #faf7f2;
-            margin: 40px 0;
-        }
+        /* Stats Grid */
+        .stats { grid-column: span 1; display: flex; flex-direction: column; justify-content: center; gap: 10px;}
+        .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); display: block; }
 
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
+        /* Experience Timeline */
+        .exp-box { grid-column: span 2; }
+        .exp-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+        .exp-item:last-child { border: none; margin-bottom: 0; }
 
-        footer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #888;
-            padding: 40px 0;
-        }
+        /* Skills */
+        .skills { grid-column: span 2; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .tag { background: #1e1e24; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; border: 1px solid var(--border); }
 
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .blog-container { padding: 0 20px; }
+        /* Links */
+        .links { grid-column: span 4; display: flex; justify-content: space-around; background: var(--accent); color: black; font-weight: 700; padding: 1rem; text-decoration: none;}
+        .links a { color: black; text-decoration: none; }
+
+        @media (max-width: 850px) {
+            .bento { grid-template-columns: 1fr; }
+            .hero, .exp-box, .skills { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
-    <div class="page-wrapper">
-        <header>
-            <h1>The Sunday Journal</h1>
-            <p>Thoughts on life, photography, and the digital age.</p>
-        </header>
+    <div class="container">
+        <div class="bento">
+            
+            <!-- Hero Card -->
+            <div class="box hero">
+                <div class="terminal-header">> whoami</div>
+                <span class="yoe-badge">5+ YEARS EXPERIENCE</span>
+                <h1>Alex Chen</h1>
+                <p style="font-size: 1.2rem; color: var(--text-muted)">Senior Backend Engineer specializing in scalable distributed systems and cloud infrastructure.</p>
+            </div>
 
-        <nav>
-            <a href="#">Articles</a>
-            <a href="#">Photography</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
+            <!-- Impact Stats -->
+            <div class="box stats">
+                <div><span class="stat-num">99.9%</span> Uptime Managed</div>
+                <div><span class="stat-num">1.2M+</span> Req/sec Handled</div>
+                <div><span class="stat-num">40%</span> Infra Cost Saved</div>
+            </div>
 
-        <main class="blog-container">
-            <!-- Blog Post 1 -->
-            <article class="post-card">
-                <img src="images.unsplash.com" alt="Work Setup">
-                <div class="post-content">
-                    <span class="category">Lifestyle</span>
-                    <h2>Finding Peace in a Digital World</h2>
-                    <p>How I reclaimed my mornings by turning off notifications and picking up a real book...</p>
+            <!-- Core Experience -->
+            <div class="box exp-box">
+                <h3 style="margin-top: 0; color: var(--accent)">Professional Impact</h3>
+                <div class="exp-item">
+                    <strong>Lead Dev @ GlobalScale</strong>
+                    <p style="font-size: 0.85rem; color: var(--text-muted)">Architected a Go-based microservices mesh reducing latency by 200ms for 5M monthly users.</p>
                 </div>
-            </article>
-
-            <!-- Blog Post 2 -->
-            <article class="post-card">
-                <img src="images.unsplash.com" alt="Mountains">
-                <div class="post-content">
-                    <span class="category">Travel</span>
-                    <h2>The Silent Peaks of Nepal</h2>
-                    <p>A journey through the Himalayas that changed how I view the concept of time...</p>
+                <div class="exp-item">
+                    <strong>Software Engineer II @ DataCorp</strong>
+                    <p style="font-size: 0.85rem; color: var(--text-muted)">Optimized PostgreSQL queries saving $15k/month in AWS RDS expenses.</p>
                 </div>
-            </article>
+            </div>
 
-            <!-- Blog Post 3 -->
-            <article class="post-card">
-                <img src="images.unsplash.com" alt="Coffee">
-                <div class="post-content">
-                    <span class="category">Minimalism</span>
-                    <h2>Why Less is Actually More</h2>
-                    <p>Decluttering my physical space was the first step to decluttering my mental health...</p>
+            <!-- Tech Stack -->
+            <div class="box skills">
+                <h3 style="margin-top: 0; color: var(--accent)">Technical Arsenal</h3>
+                <div class="tag-cloud">
+                    <span class="tag">Go (Golang)</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Terraform</span>
+                    <span class="tag">AWS/GCP</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Redis</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Kafka</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">gRPC</span>
                 </div>
-            </article>
-        </main>
+            </div>
 
-        <section class="about-me">
-            <img src="images.unsplash.com" class="profile-pic" alt="Author">
-            <h2>Hey, I'm Alex</h2>
-            <p style="max-width: 500px; margin: 0 auto;">I'm a photographer and writer exploring the intersection of technology and human connection. Welcome to my little corner of the internet.</p>
-        </section>
+            <!-- Quick Links -->
+            <div class="box links">
+                <a href="https://github.com">GITHUB</a>
+                <a href="https://linkedin.com">LINKEDIN</a>
+                <a href="mailto:alex@engineer.com">EMAIL ME</a>
+                <a href="#">RESUME.PDF</a>
+            </div>
 
-        <footer>
-            <p>&copy; 2025 The Sunday Journal. All rights reserved.</p>
+        </div>
+
+        <footer style="text-align: center; margin-top: 3rem; color: var(--text-muted); font-size: 0.8rem; font-family: 'Fira Code', monospace;">
+            // Built with 2025 Best Practices. Proudly hosted on GitHub.
         </footer>
     </div>
 
