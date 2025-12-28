@@ -1,93 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dummy Website</title>
+    <title>Modern Portfolio 2025</title>
+    <!-- Modern Typography -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+        :root {
+            --primary: #4f46e5;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
         }
 
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Modern Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            padding: 1.2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Header */
         header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
             text-align: center;
         }
 
         header h1 {
-            margin: 0;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
 
+        /* Glassmorphism Sections */
         section {
-            padding: 20px;
-            margin: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         h2 {
-            color: #333;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 0;
         }
 
-        /* Navigation Bar */
-        nav {
-            text-align: center;
-            background-color: #333;
-            padding: 10px 0;
+        /* Modern Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        nav a {
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 16px;
-        }
-
-        nav a:hover {
-            background-color: #575757;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
+        .portfolio-grid img {
             width: 100%;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            filter: grayscale(20%);
         }
 
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
+        .portfolio-grid img:hover {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
 
-            section {
-                margin: 10px;
-            }
+        /* Beautiful Form */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            section { margin: 1rem; padding: 1.5rem; }
         }
     </style>
 </head>
-
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome to My Dummy Website</h1>
-    </header>
-
-    <!-- Navigation Bar -->
     <nav>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -95,56 +159,47 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- About Section -->
+    <header>
+        <h1>Creative Design Studio</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem;">Building the digital future in 2025</p>
+    </header>
+
     <section id="about">
         <h2>About Us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at augue ut lorem varius gravida. Integer
-            tempor, nulla sit amet faucibus volutpat, eros nulla elementum arcu, id laoreet arcu nisi id neque.</p>
+        <p>We are a forward-thinking collective of designers and developers dedicated to creating high-performance digital experiences that matter.</p>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
-        <ul>
-            <li>Web Design</li>
-            <li>Graphic Design</li>
-            <li>SEO Optimization</li>
-            <li>Content Creation</li>
-        </ul>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <h2>Portfolio</h2>
-        <p>Here are some of the projects we’ve worked on:</p>
-        <div>
-            <img src="https://via.placeholder.com/200" alt="Project 1">
-            <img src="https://via.placeholder.com/200" alt="Project 2">
-            <img src="https://via.placeholder.com/200" alt="Project 3">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>✨ Web Design</div>
+            <div>🚀 SEO Strategy</div>
+            <div>🎨 Brand Identity</div>
+            <div>📱 Mobile Apps</div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="portfolio">
+        <h2>Selected Work</h2>
+        <div class="portfolio-grid">
+            <img src="picsum.photos" alt="Project 1">
+            <img src="picsum.photos" alt="Project 2">
+            <img src="picsum.photos" alt="Project 3">
+        </div>
+    </section>
+
     <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>Get In Touch</h2>
         <form>
-            <label for="name">Your Name:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-
-            <label for="email">Your Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="message">Your Message:</label><br>
-            <textarea id="message" name="message" rows="4" required></textarea><br><br>
-
-            <button type="submit">Submit</button>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+            <button type="submit">Send Message</button>
         </form>
     </section>
 
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 My Dummy Website | All Rights Reserved</p>
+        <p>&copy; 2025 Modern Studio. Crafted with precision.</p>
     </footer>
 </body>
-
 </html>
